@@ -1,17 +1,17 @@
 call plug#begin('~/.vim/plugged')
     Plug 'joshdick/onedark.vim'
     Plug 'rakr/vim-one'
-   Plug 'rust-lang/rust.vim'
-	Plug 'timonv/vim-cargo'
-	Plug 'racer-rust/vim-racer'
-    Plug 'OmniSharp/omnisharp-vim'	
+    Plug 'rust-lang/rust.vim'
+    Plug 'timonv/vim-cargo'
+    Plug 'racer-rust/vim-racer'
+    Plug 'OmniSharp/omnisharp-vim'
     Plug 'maralla/completor.vim'
 	Plug 'quramy/tsuquyomi'
-	Plug 'leafgarland/typescript-vim'
-	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-	Plug 'groenewege/vim-less'
-	Plug 'w0rp/ale'
-	Plug 'kien/ctrlp.vim'
+    Plug 'leafgarland/typescript-vim'
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    Plug 'groenewege/vim-less'
+    Plug 'w0rp/ale'
+    Plug 'kien/ctrlp.vim'
 call plug#end()
 
 let g:typescript_compiler_binary = 'tsc'

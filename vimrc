@@ -1,9 +1,9 @@
 call plug#begin('~/.vim/plugged')
     Plug 'joshdick/onedark.vim'
     Plug 'rakr/vim-one'
-"   Plug 'rust-lang/rust.vim'
-"	Plug 'timonv/vim-cargo'
-"	Plug 'racer-rust/vim-racer'
+   Plug 'rust-lang/rust.vim'
+	Plug 'timonv/vim-cargo'
+	Plug 'racer-rust/vim-racer'
     Plug 'OmniSharp/omnisharp-vim'	
     Plug 'maralla/completor.vim'
 	Plug 'quramy/tsuquyomi'
@@ -19,7 +19,7 @@ let g:typescript_compiler_options = ''
 let g:tsuquyomi_completion_detail = 1
 let g:tsuquyomi_search_term_min_length = 3
 let g:typescript_indent_disable = 1
-"let g:completor_racer_binary = '~/.cargo/bin/racer'
+let g:completor_racer_binary = '~/.cargo/bin/racer'
 let g:completor_gocode_binary = '~/.go-packages/bin/gocode'
 let g:ale_completion_enabled = 1
 let g:ale_set_loclist = 0

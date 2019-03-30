@@ -111,8 +111,8 @@ export PATH="/home/default/Applications/node/bin:$PATH"
 
 #RUST
 export RUST_SRC_PATH="/home/default/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
-export PATH="$HOME/.cargo/bin:$PATH"
-export CARGO_HOME="$HOME/.cargo"
+export PATH="/home/default/.cargo/bin:$PATH"
+export CARGO_HOME="/home/default/.cargo"
 
 #GOLANG
 export GOROOT="/home/default/Applications/go"

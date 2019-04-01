@@ -110,9 +110,9 @@ export PATH="/home/default/Applications/dotnet:$PATH"
 export PATH="/home/default/Applications/node/bin:$PATH"
 
 #RUST
-export RUST_SRC_PATH="/home/default/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 export PATH="/home/default/.cargo/bin:$PATH"
 export CARGO_HOME="/home/default/.cargo"
+export RUST_SRC_PATH="/home/default/.rustup/toolchains/nightly-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
 
 #GOLANG
 export GOROOT="/home/default/Applications/go"

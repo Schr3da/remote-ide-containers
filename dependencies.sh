@@ -5,8 +5,11 @@ source /home/default/.bashrc
 npm install -g typescript
 
 rustup component add rls rust-analysis rust-src
+rustup component add rust-src
 rustup default nightly
 rustup component add rls rust-analysis rust-src
+rustup component add rust-src
+
 cargo install cargo-watch
 cargo install racer
 

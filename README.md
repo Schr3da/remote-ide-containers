@@ -41,14 +41,13 @@ operating system the commands might differ.
 4. Run the docker container
 
 ```
-    sudo docker run -it IMAGE_NAME
+    sudo docker run -e USER=default -it IMAGE_NAME
 ```
 
 5. Install the required dependencies
 
 ```
-    cd ~/
-    ./Config/dependencies.sh
+    /home/default/Config/dependencies.sh
 ```
 6. Start vim
 
@@ -56,8 +55,8 @@ operating system the commands might differ.
     vim .
 ```
 
-7. Install vim plugins (enter :)
+7. Install vim plugins
 
 ```
-    PlugInstall
+    :PlugInstall
 ```

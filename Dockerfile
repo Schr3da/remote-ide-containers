@@ -44,7 +44,6 @@ RUN mkdir /home/default/.go-packages
 
 #rust
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
-RUN echo 'source /home/default/.cargo/env' >> /home/default/.bashrc
 
 #node
 RUN wget https://nodejs.org/dist/v11.12.0/node-v11.12.0-linux-x64.tar.xz

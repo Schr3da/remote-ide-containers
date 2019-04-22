@@ -1,34 +1,39 @@
 FROM ubuntu:bionic
 
 RUN apt-get update
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository ppa:neovim-ppa/stable
+RUN apt-get update
 RUN apt-get install -y build-essential
-RUN apt-get install -y vim
 RUN apt-get install -y git
 RUN apt-get install -y screen
 RUN apt-get install -y curl
 RUN apt-get install -y wget
 RUN apt-get install -y xz-utils
 RUN apt-get install -y apt-transport-https
+RUN apt-get install -y python-dev python-pip python3-dev python3-pip
+RUN apt-get install -y neovim
 
-#dotnet core
-RUN wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
-RUN dpkg -i packages-microsoft-prod.deb
-RUN apt-get update -y
-RUN apt-get install -y dotnet-sdk-2.2
-RUN apt-get install -y libuv1-dev
+#add group
+RUN addgroup --gid 1024 dev-group
 
 #default user
-RUN useradd -ms /bin/bash default
+RUN useradd -ms /bin/bash default -G dev-group
 
 #mv config files
 ADD . /home/default/Config
 ADD vimrc /home/default/.vimrc
+ADD init.vim /home/default/.config/nvim/init.vim
 ADD bashrc /home/default/.bashrc
 ADD profile /home/default/.profile
 
 #permissions
-RUN chown default /home/default/.vimrc
-RUN chmod a+x /home/default/.vimrc
+RUN chown -R default /home/default/.config
+RUN chown default /home/default/.config/nvim
+RUN chmod a+x /home/default/.config/nvim
+
+RUN chown default /home/default/.config/nvim/init.vim
+RUN chmod a+x /home/default/.config/nvim/init.vim
 
 RUN chown default /home/default/.profile
 RUN chmod a+x /home/default/.profile
@@ -63,7 +68,5 @@ RUN mv ./go /home/default/Applications/go
 RUN chown default /home/default/Applications/go
 RUN chmod u+x+w /home/default/Applications/go/*
 RUN rm -rf ./go1.12.1.linux-amd64.tar.gz
-
-RUN curl -fLo /home/default/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 CMD ["bash"]

@@ -6,9 +6,6 @@ Following runtimes and programming languages are supported:
 - Rust
 - Golang
 - Typescript
-- C#
-
-- Dotnet core
 - Node 
 
 ## Instructions
@@ -40,8 +37,33 @@ operating system the commands might differ.
 
 4. Run the docker container
 
+4.1 Without shared folder
+
 ```
     sudo docker run -e USER=default -it IMAGE_NAME
+```
+
+4.2 With shared folder
+
+Modify the shared folder ownership and permission
+
+```
+    chown :1024 /PATH_TO/FOLDER
+    chmod 775 /PATH_TO/FOLDER
+    chmod g+s /PATH_TO/FOLDER
+```
+
+Modify the docker file and add the group
+
+```
+    RUN addgroup --gid 1024 dev-group
+    RUN adduser --ingroup 1024 dev-group
+```
+
+Run the docker container
+
+```
+    sudo docker run -e USER=default -v /PATH_TO/FOLDER:/home/default/FOLDER -it IMAGE_NAME
 ```
 
 5. Install the required dependencies
@@ -49,14 +71,42 @@ operating system the commands might differ.
 ```
     /home/default/Config/dependencies.sh
 ```
-6. Start vim
+6. Start nvim (neovim)
 
 ```
-    vim .
+    nvim .
 ```
 
-7. Install vim plugins
+7. Install nvim plugins
 
 ```
     :PlugInstall
 ```
+
+8. Install Conquer of Completion plugins
+
+```
+    :CocInstall coc-rls
+    :CocInstall coc-tsserver
+    :CocInstall coc-json
+    :CocInstall coc-gocode
+    :CocConfig
+```
+
+9. Copy the following defintion to the config file
+```
+{
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    }
+  }
+}
+```
+
+
+
+
+

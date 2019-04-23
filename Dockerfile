@@ -69,4 +69,6 @@ RUN chown default /home/default/Applications/go
 RUN chmod u+x+w /home/default/Applications/go/*
 RUN rm -rf ./go1.12.1.linux-amd64.tar.gz
 
+EXPOSE 80 8080 8888
+
 CMD ["bash"]

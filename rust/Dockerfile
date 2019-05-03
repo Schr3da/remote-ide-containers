@@ -8,7 +8,6 @@ RUN apt-get update
 RUN apt-get install -y pkg-config
 RUN apt-get install -y build-essential
 RUN apt-get install -y git
-RUN apt-get install -y screen
 RUN apt-get install -y curl
 RUN apt-get install -y wget
 RUN apt-get install -y xz-utils
@@ -21,7 +20,7 @@ RUN apt-get install -y openssl
 #add group
 RUN addgroup --gid 1024 dev-group
 
-#default user
+#rust user
 RUN useradd --gid 1024 -ms /bin/bash default
 
 #mv config files
@@ -48,7 +47,6 @@ USER default
 WORKDIR /home/default
 
 RUN mkdir /home/default/Applications
-RUN mkdir /home/default/.go-packages
 
 #rust
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
@@ -63,15 +61,6 @@ RUN chown default /home/default/Applications/node
 RUN chmod u+x+w /home/default/Applications/node/*
 RUN rm -rf ./node-v11.12.0-linux-x64.tar
 
-#golang
-RUN wget https://dl.google.com/go/go1.12.1.linux-amd64.tar.gz
-RUN chmod a+x ./go1.12.1.linux-amd64.tar.gz
-RUN tar xvzf ./go1.12.1.linux-amd64.tar.gz
-RUN mv ./go /home/default/Applications/go
-RUN chown default /home/default/Applications/go
-RUN chmod u+x+w /home/default/Applications/go/*
-RUN rm -rf ./go1.12.1.linux-amd64.tar.gz
-
-EXPOSE 80 8080 8888
+EXPOSE 80
 
 CMD ["bash"]

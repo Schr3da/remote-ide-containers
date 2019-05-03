@@ -2,23 +2,19 @@ call plug#begin('~/.vim/plugged')
    	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
 	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-	Plug 'leafgarland/typescript-vim'
 	Plug 'rakr/vim-one'
-	Plug 'NLKNguyen/papercolor-theme'
 	Plug 'rust-lang/rust.vim'
 	Plug 'timonv/vim-cargo'
-	Plug 'quramy/tsuquyomi'
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	Plug 'groenewege/vim-less'
 	Plug 'palantir/tslint'
 	Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 	Plug 'peitalin/vim-jsx-typescript'	
+	Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
-let g:tsuquyomi_completion_detail = 1
-let g:tsuquyomi_search_term_min_length = 3
 let g:typescript_indent_disable = 1
 let g:netrw_liststyle = 3
 let g:netrw_banner = 0
@@ -28,7 +24,7 @@ let g:go_def_mode='gopls'
 "let g:prettier#autoformat = 0
 "autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
-set cmdheight=4
+set cmdheight=2
 set laststatus=2
 set ffs=unix,dos
 set ff=unix
@@ -36,16 +32,16 @@ set number
 set noswapfile
 set spell spelllang=en_us
 set completeopt=longest,menuone
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4 noexpandtab
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2 noexpandtab
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 set spell spelllang=en_us
 set wildignore+=*/node_modules/*
 set wildignore+=*/target/*
 set wildignore+=*/dist/*
 set wildmode=longest,list
-set noet ci pi sts=0 sw=4 ts=4
+set noet ci pi sts=0 sw=2 ts=2
 
 colorscheme one
 set background=dark

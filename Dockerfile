@@ -13,16 +13,17 @@ RUN apt-get install -y xz-utils
 RUN apt-get install -y apt-transport-https
 RUN apt-get install -y python-dev python-pip python3-dev python3-pip
 RUN apt-get install -y neovim
+RUN apt-get install -y libssl-dev
+RUN apt-get install -y openssl
 
 #add group
 RUN addgroup --gid 1024 dev-group
 
 #default user
-RUN useradd -ms /bin/bash default -G dev-group
+RUN useradd --gid 1024 -ms /bin/bash default
 
 #mv config files
 ADD . /home/default/Config
-ADD vimrc /home/default/.vimrc
 ADD init.vim /home/default/.config/nvim/init.vim
 ADD bashrc /home/default/.bashrc
 ADD profile /home/default/.profile

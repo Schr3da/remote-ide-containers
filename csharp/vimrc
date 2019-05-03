@@ -1,14 +1,12 @@
 call plug#begin('~/.vim/plugged')
-   	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    Plug 'junegunn/fzf.vim'
-	Plug 'rakr/vim-one'
-    Plug 'OmniSharp/omnisharp-vim'
-    Plug 'maralla/completor.vim'
+	Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+   	Plug 'junegunn/fzf.vim'
+    	Plug 'OmniSharp/omnisharp-vim'
+    	Plug 'maralla/completor.vim'
 	Plug 'quramy/tsuquyomi'
-    Plug 'leafgarland/typescript-vim'
-    Plug 'groenewege/vim-less'
-    Plug 'w0rp/ale'
-    Plug 'kien/ctrlp.vim'
+    	Plug 'leafgarland/typescript-vim'
+    	Plug 'groenewege/vim-less'
+    	Plug 'w0rp/ale'
 call plug#end()
 
 let g:typescript_compiler_binary = 'tsc'
@@ -25,6 +23,11 @@ let g:ale_echo_cursor = 0
 let g:netrw_liststyle = 1
 let g:netrw_banner = 0
 
+let g:OmniSharp_selector_ui = 'fzf'
+let g:ale_linters = {
+\ 'cs': ['OmniSharp']
+\}
+
 set laststatus=2
 set ffs=unix,dos
 set ff=unix
@@ -40,6 +43,7 @@ set wildignore+=*/target/*
 set wildignore+=*/dist/*
 set wildmode=longest,list
 
-syntax on
-silent! colorscheme one
+"highlight Pmenu ctermbg=gray guibg=black cterm=NONE guibg=NONE gui=NONE guifg=NONE
+"highlight PmenuSel ctermbg=16 guibg=156 cterm=NONE guibg=NONE gui=NONE guifg=NONE
 
+syntax on

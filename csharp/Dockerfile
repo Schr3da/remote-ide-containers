@@ -16,8 +16,11 @@ RUN apt-get update -y
 RUN apt-get install -y dotnet-sdk-2.2
 RUN apt-get install -y libuv1-dev
 
-#default user
-RUN useradd -ms /bin/bash default
+#add group
+RUN addgroup --gid 1024 dev-group
+
+#golang user
+RUN useradd --gid 1024 -ms /bin/bash default
 
 #mv config files
 ADD . /home/default/Config

@@ -43,7 +43,7 @@ set wildignore+=*/target/*
 set wildignore+=*/dist/*
 set wildmode=longest,list
 
-"highlight Pmenu ctermbg=gray guibg=black cterm=NONE guibg=NONE gui=NONE guifg=NONE
-"highlight PmenuSel ctermbg=16 guibg=156 cterm=NONE guibg=NONE gui=NONE guifg=NONE
+highlight Pmenu ctermbg=Gray ctermfg=Black
+highlight PmenuSel ctermbg=Black ctermfg=White
 
 syntax on

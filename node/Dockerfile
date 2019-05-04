@@ -55,6 +55,6 @@ RUN chown default /home/default/Applications/node
 RUN chmod u+x+w /home/default/Applications/node/*
 RUN rm -rf ./node-v11.12.0-linux-x64.tar
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD ["bash"]

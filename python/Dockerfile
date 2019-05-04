@@ -2,25 +2,26 @@ FROM ubuntu:bionic
 
 RUN bash
 RUN apt-get update
+
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:neovim-ppa/stable
+
 RUN apt-get update
-RUN apt-get install -y pkg-config
 RUN apt-get install -y build-essential
+RUN apt-get install -y pkg-config
 RUN apt-get install -y git
-RUN apt-get install -y curl
 RUN apt-get install -y wget
-RUN apt-get install -y xz-utils
-RUN apt-get install -y apt-transport-https
-RUN apt-get install -y python-dev python-pip python3-dev python3-pip
+RUN apt-get install -y curl
 RUN apt-get install -y neovim
 RUN apt-get install -y libssl-dev
 RUN apt-get install -y openssl
+RUN apt-get install -y python-dev python-pip python3-dev python3-pip
+RUN pip install --no-cache-dir tensorflow==2.0.0-alpha0 
 
 #add group
 RUN addgroup --gid 1024 dev-group
 
-#rust user
+#node user
 RUN useradd --gid 1024 -ms /bin/bash default
 
 #mv config files
@@ -48,10 +49,6 @@ WORKDIR /home/default
 
 RUN mkdir /home/default/Applications
 
-#rust
-RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
-
-#node
 RUN wget https://nodejs.org/dist/v11.12.0/node-v11.12.0-linux-x64.tar.xz
 RUN chmod a+x ./node-v11.12.0-linux-x64.tar.xz
 RUN unxz ./node-v11.12.0-linux-x64.tar.xz

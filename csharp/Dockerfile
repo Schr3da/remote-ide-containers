@@ -55,6 +55,6 @@ RUN rm -rf ./node-v11.12.0-linux-x64.tar
 
 RUN curl -fLo /home/default/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD ["bash"]

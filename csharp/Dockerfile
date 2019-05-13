@@ -15,6 +15,9 @@ RUN dpkg -i packages-microsoft-prod.deb
 RUN apt-get update -y
 RUN apt-get install -y dotnet-sdk-2.2
 RUN apt-get install -y libuv1-dev
+
+RUN add-apt-repository ppa:x4121/ripgrep
+RUN apt-get update
 RUN apt-get install -y ripgrep
 
 #add group

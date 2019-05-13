@@ -14,6 +14,7 @@ RUN apt-get install -y curl
 RUN apt-get install -y neovim
 RUN apt-get install -y libssl-dev
 RUN apt-get install -y openssl
+RUN apt-get install -y ripgrep
 
 #add group
 RUN addgroup --gid 1024 dev-group
@@ -24,6 +25,8 @@ RUN useradd --gid 1024 -ms /bin/bash default
 #mv config files
 ADD . /home/default/Config
 ADD init.vim /home/default/.config/nvim/init.vim
+ADD coc-settings.json /home/default/.config/nvim/coc-settings.json
+
 ADD bashrc /home/default/.bashrc
 ADD profile /home/default/.profile
 
@@ -34,6 +37,9 @@ RUN chmod a+x /home/default/.config/nvim
 
 RUN chown default /home/default/.config/nvim/init.vim
 RUN chmod a+x /home/default/.config/nvim/init.vim
+
+RUN chown default /home/default/.config/nvim/coc-settings.json
+RUN chmod a+x /home/default/.config/nvim/coc-settings.json
 
 RUN chown default /home/default/.profile
 RUN chmod a+x /home/default/.profile

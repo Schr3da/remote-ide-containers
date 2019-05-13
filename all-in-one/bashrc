@@ -99,6 +99,8 @@ fi
 #    . /etc/bash_completion
 #fi
 
+set -x FZF_DEFAULT_COMMAND 'rg --files --hidden'
+
 export TERM=xterm
 
 #DOTNET

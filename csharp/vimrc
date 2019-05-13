@@ -28,6 +28,8 @@ let g:ale_linters = {
 \ 'cs': ['OmniSharp']
 \}
 
+let mapleader=","
+
 set laststatus=2
 set ffs=unix,dos
 set ff=unix

@@ -15,6 +15,7 @@ RUN dpkg -i packages-microsoft-prod.deb
 RUN apt-get update -y
 RUN apt-get install -y dotnet-sdk-2.2
 RUN apt-get install -y libuv1-dev
+RUN apt-get install -y ripgrep
 
 #add group
 RUN addgroup --gid 1024 dev-group

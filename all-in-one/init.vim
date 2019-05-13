@@ -20,6 +20,7 @@ let g:netrw_liststyle = 3
 let g:netrw_banner = 0
 let g:prettier#exec_cmd_async = 1
 let g:go_def_mode='gopls'
+let mapleader=","
 
 "let g:prettier#autoformat = 0
 "autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
@@ -32,9 +33,6 @@ set number
 set noswapfile
 set spell spelllang=en_us
 set completeopt=longest,menuone
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2 noexpandtab
 set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 set spell spelllang=en_us
 set wildignore+=*/node_modules/*
@@ -77,3 +75,7 @@ if has("gui_running")
 endif
 
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+nmap <silent> <leader>dd <Plug>(coc-definition)
+nmap <silent> <leader>dr <Plug>(coc-references)
+nmap <silent> <leader>dj <Plug>(coc-implementation)
+

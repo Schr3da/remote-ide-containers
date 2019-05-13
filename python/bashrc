@@ -68,6 +68,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 export TERM=xterm
+set -x FZF_DEFAULT_COMMAND 'rg --files --hidden'
 
 #NODE
 export PATH="/home/default/Applications/node/bin:$PATH"

@@ -4,18 +4,23 @@ call plug#begin('~/.vim/plugged')
 	Plug 'rakr/vim-one'
 	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-  Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 call plug#end()
 
 let g:netrw_liststyle = 1
 let g:netrw_banner = 0
 let g:go_def_mode='gopls'
+let g:go_fmt_command = "goimports"
+let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_deadline = "5s"
+
 let mapleader=","
 
-set cmdheight=4
+set cmdheight=2
 set laststatus=2
 set ffs=unix,dos
 set ff=unix
+set nowrap
 set number
 set noswapfile
 set spell spelllang=en_us

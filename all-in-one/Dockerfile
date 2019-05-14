@@ -18,6 +18,10 @@ RUN apt-get install -y neovim
 RUN apt-get install -y libssl-dev
 RUN apt-get install -y openssl
 
+RUN add-apt-repository ppa:x4121/ripgrep
+RUN apt-get update
+RUN apt-get install -y ripgrep
+
 #add group
 RUN addgroup --gid 1024 dev-group
 

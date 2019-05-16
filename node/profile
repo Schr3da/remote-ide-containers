@@ -7,6 +7,4 @@ if [ "$BASH" ]; then
 fi
 
 export TERM=xterm
-set -x FZF_DEFAULT_COMMAND 'rg --files --hidden'
-
 export PATH="/home/default/Applications/node/bin:$PATH"

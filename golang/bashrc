@@ -76,4 +76,15 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export TERM=xterm
+
+#NODE
+export PATH="/home/default/Applications/node/bin:$PATH"
+
+#GOLANG
+export GOROOT="/home/default/Applications/go"
+export PATH="/home/default/Applications/go/bin:$PATH"
+export GOPATH="/home/default/.go-packages"
+export PATH="/home/default/.go-packages/bin:$PATH"
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

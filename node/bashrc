@@ -76,4 +76,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
+export TERM=xterm
+export PATH="/home/default/Applications/node/bin:$PATH"
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

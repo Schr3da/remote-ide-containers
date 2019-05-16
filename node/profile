@@ -5,6 +5,3 @@ if [ "$BASH" ]; then
     . ~/.bashrc
   fi
 fi
-
-export TERM=xterm
-export PATH="/home/default/Applications/node/bin:$PATH"

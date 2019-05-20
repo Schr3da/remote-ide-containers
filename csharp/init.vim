@@ -96,3 +96,9 @@ command! -nargs=1 Rename :call OmniSharp#RenameTo("<args>")
 nnoremap <Leader>cf :OmniSharpCodeFormat<CR>
 nnoremap <Leader>ss :OmniSharpStartServer<CR>
 nnoremap <Leader>sp :OmniSharpStopServer<CR>
+
+nmap <silent> <leader>ba :buffers<CR>
+nmap <silent> <leader>bn :bnext<CR>
+nmap <silent> <leader>bp :bprevious<CR>
+nmap <silent> <leader>bb :b#<CR>
+nnoremap <C-p> :Files<CR>

@@ -83,5 +83,5 @@ nmap <silent> <leader>ba :buffers<CR>
 nmap <silent> <leader>bn :bnext<CR>
 nmap <silent> <leader>bp :bprevious<CR>
 nmap <silent> <leader>bb :b#<CR>
-nnoremap <C-p> :Files<CR>
+nnoremap <C-p> :Files ./<CR>
 

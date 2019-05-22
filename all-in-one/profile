@@ -5,5 +5,3 @@ if [ "$BASH" ]; then
     . ~/.bashrc
   fi
 fi
-
-mesg n || true

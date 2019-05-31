@@ -21,7 +21,7 @@ let g:ale_linters = {
 
 let mapleader=","
 
-set cmdheight=2
+set cmdheight=1
 set laststatus=2
 set ffs=unix,dos
 set ff=unix

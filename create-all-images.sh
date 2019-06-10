@@ -1,9 +1,5 @@
 #!/bin/bash
 
-cd ./all-in-one/
-docker build -t all-env .
-cd ..
-
 cd ./csharp/
 docker build -t csharp-env .
 cd ..

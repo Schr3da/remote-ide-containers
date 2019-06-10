@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
 	Plug 'rakr/vim-one'
-	Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+	Plug 'fatih/vim-go'
 	Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 call plug#end()
 

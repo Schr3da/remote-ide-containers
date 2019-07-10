@@ -23,7 +23,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-export PS1="\[\e[32;1m\]\u@\[\e[38;1m\]golang \[\e[30;1m\]\W> \[\e[0m\]"
+export PS1="\[\e[32;1m\]\u@\[\e[38;1m\]code-server \[\e[30;1m\]\W> \[\e[0m\]"
 
 export TERM=xterm
 

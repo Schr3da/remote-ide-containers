@@ -53,3 +53,6 @@ rustup target add wasm32-unknown-unknown
 cargo install wasm-pack
 cargo install cargo-watch
 cargo install racer
+
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

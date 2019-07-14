@@ -5,7 +5,7 @@ ENV TERM=xterm\
     DEBIAN_FRONTEND=noninteractive
 
 RUN bash
-RUN apt-get update
+RUN apt-get update --fix-missing
 
 RUN apt-get install -y build-essential
 RUN apt-get install -y git

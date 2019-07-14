@@ -1,7 +1,7 @@
 FROM ubuntu:bionic
 
 RUN bash
-RUN apt-get update
+RUN apt-get update --fix-missing
 
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:neovim-ppa/stable

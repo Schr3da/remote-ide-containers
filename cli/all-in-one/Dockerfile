@@ -5,6 +5,7 @@ ENV TERM=xterm\
     DEBIAN_FRONTEND=noninteractive
 
 RUN bash
+
 RUN apt-get update --fix-missing
 
 RUN apt-get install -y software-properties-common
@@ -22,6 +23,13 @@ RUN apt-get install -y openssl
 RUN apt-get install -y tzdata
 RUN apt-get install -y python3-pip
 RUN apt-get install -y python-dev python-pip python3-dev python3-pip
+
+RUN add-apt-repository ppa:neovim-ppa/stable
+RUN add-apt-repository ppa:x4121/ripgrep
+
+RUN apt-get update
+RUN apt-get install -y ripgrep
+RUN apt-get install -y neovim
 
 #tensorflow
 RUN pip install --no-cache-dir tensorflow==2.0.0-alpha0 

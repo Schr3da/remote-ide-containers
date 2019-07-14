@@ -1,11 +1,16 @@
 call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
-	Plug 'rakr/vim-one'
-
-	Plug 'fatih/vim-go'
-	
-  
+  Plug 'rakr/vim-one'
+  Plug 'fatih/vim-go'
+  Plug 'OmniSharp/omnisharp-vim'  
+  Plug 'groenewege/vim-less'
+  Plug 'palantir/tslint'
+  Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+  Plug 'leafgarland/typescript-vim'
+  Plug 'peitalin/vim-jsx-typescript'	
+  Plug 'rust-lang/rust.vim'
+  Plug 'timonv/vim-cargo'
   Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 call plug#end()
 

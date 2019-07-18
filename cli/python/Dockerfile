@@ -2,11 +2,12 @@ FROM ubuntu:bionic
 
 RUN bash
 RUN apt-get update --fix-missing
+RUN apt-get upgrade -y
 
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:neovim-ppa/stable
 
-RUN apt-get update
+RUN apt-get update -y
 RUN apt-get install -y build-essential
 RUN apt-get install -y pkg-config
 RUN apt-get install -y git
@@ -18,7 +19,7 @@ RUN apt-get install -y openssl
 RUN apt-get install -y python-dev python-pip python3-dev python3-pip
 
 RUN add-apt-repository ppa:x4121/ripgrep
-RUN apt-get update
+RUN apt-get update -y
 RUN apt-get install -y ripgrep
 
 RUN pip install --no-cache-dir tensorflow==2.0.0-alpha0 

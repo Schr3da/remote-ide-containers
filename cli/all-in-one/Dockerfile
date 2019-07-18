@@ -7,8 +7,11 @@ ENV TERM=xterm\
 RUN bash
 
 RUN apt-get update --fix-missing
+RUN apt-get upgrade -y
 
 RUN apt-get install -y software-properties-common
+RUN apt-get install -y lldb
+RUN apt-get install -y clang
 RUN apt-get install -y build-essential
 RUN apt-get install -y pkg-config
 RUN apt-get install -y wget
@@ -27,7 +30,7 @@ RUN apt-get install -y python-dev python-pip python3-dev python3-pip
 RUN add-apt-repository ppa:neovim-ppa/stable
 RUN add-apt-repository ppa:x4121/ripgrep
 
-RUN apt-get update
+RUN apt-get update -y
 RUN apt-get install -y ripgrep
 RUN apt-get install -y neovim
 
@@ -38,7 +41,7 @@ RUN pip install --no-cache-dir tensorflow==2.0.0-alpha0
 RUN apt-get install -y gnupg ca-certificates
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 RUN echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | tee /etc/apt/sources.list.d/mono-official-stable.list
-RUN apt-get update
+RUN apt-get update -y
 RUN apt-get install -y mono-devel
 
 #dotnet core

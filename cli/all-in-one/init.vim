@@ -12,6 +12,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'rust-lang/rust.vim'
   Plug 'timonv/vim-cargo'
   Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+	Plug 'w0rp/ale'
 call plug#end()
 
 let g:netrw_liststyle = 1
@@ -21,6 +22,14 @@ let g:go_fmt_command = "goimports"
 let g:go_metalinter_enabled = ['vet', 'golint', 'errcheck']
 let g:go_metalinter_autosave = 1
 let g:go_metalinter_deadline = "5s"
+
+let g:ale_echo_msg_error_str = 'E'    
+let g:ale_echo_msg_warning_str = 'W'    
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'  
+
+let g:ale_linters = {
+	\ 'cs': ['OmniSharp']
+\}
 
 let mapleader=","
 

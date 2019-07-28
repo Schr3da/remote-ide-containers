@@ -4,6 +4,9 @@ ENV TERM=xterm\
     TZ=Europe/Berlin\
     DEBIAN_FRONTEND=noninteractive
 
+ARG USER_ID=1024
+ARG GROUP_ID=1024
+
 RUN bash
 
 RUN apt-get update --fix-missing
@@ -13,12 +16,8 @@ RUN apt-get install -y software-properties-common
 RUN apt-get install -y lldb
 RUN apt-get install -y clang
 RUN apt-get install -y build-essential
+RUN apt-get install -y net-tools htop wget curl git
 RUN apt-get install -y pkg-config
-RUN apt-get install -y wget
-RUN apt-get install -y curl
-RUN apt-get install -y git
-RUN apt-get install -y curl
-RUN apt-get install -y wget
 RUN apt-get install -y xz-utils
 RUN apt-get install -y apt-transport-https
 RUN apt-get install -y libssl-dev
@@ -56,10 +55,10 @@ RUN ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
 RUN dpkg-reconfigure --frontend noninteractive tzdata
 
 #add group
-RUN addgroup --gid 1024 dev-group
+RUN addgroup --gid $GROUP_ID dev-group
 
 #add user
-RUN useradd --gid 1024 -ms /bin/bash default
+RUN useradd -u $USER_ID --gid $GROUP_ID -ms /bin/bash default
 
 #mv config files
 ADD . /home/default/Config

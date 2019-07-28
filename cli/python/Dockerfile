@@ -1,5 +1,8 @@
 FROM ubuntu:bionic
 
+ARG USER_ID=1024
+ARG GROUP_ID=1024
+
 RUN bash
 RUN apt-get update --fix-missing
 RUN apt-get upgrade -y
@@ -10,13 +13,11 @@ RUN add-apt-repository ppa:neovim-ppa/stable
 RUN apt-get update -y
 RUN apt-get install -y build-essential
 RUN apt-get install -y pkg-config
-RUN apt-get install -y git
-RUN apt-get install -y wget
-RUN apt-get install -y curl
 RUN apt-get install -y neovim
 RUN apt-get install -y libssl-dev
 RUN apt-get install -y openssl
 RUN apt-get install -y python-dev python-pip python3-dev python3-pip
+RUN apt-get install -y net-tools htop wget curl git
 
 RUN add-apt-repository ppa:x4121/ripgrep
 RUN apt-get update -y
@@ -25,10 +26,10 @@ RUN apt-get install -y ripgrep
 RUN pip install --no-cache-dir tensorflow==2.0.0-alpha0 
 
 #add group
-RUN addgroup --gid 1024 dev-group
+RUN addgroup --gid $GROUP_ID dev-group
 
 #node user
-RUN useradd --gid 1024 -ms /bin/bash default
+RUN useradd -u $USER_ID --gid $GROUP_ID -ms /bin/bash default
 
 #mv config files
 ADD . /home/default/Config

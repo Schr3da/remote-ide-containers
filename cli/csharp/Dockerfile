@@ -4,6 +4,9 @@ ENV TERM=xterm\
     TZ=Europe/Berlin\
     DEBIAN_FRONTEND=noninteractive
 
+ARG USER_ID=1024
+ARG GROUP_ID=1024
+
 RUN apt-get update --fix-missing
 RUN apt-get upgrade -y
 
@@ -11,15 +14,13 @@ RUN bash
 RUN apt-get update --fix-missing
 
 RUN apt-get install -y build-essential
-RUN apt-get install -y git
-RUN apt-get install -y curl
-RUN apt-get install -y wget
 RUN apt-get install -y xz-utils
 RUN apt-get install -y apt-transport-https
 RUN apt-get install -y libssl-dev
 RUN apt-get install -y openssl
 RUN apt-get install -y tzdata
 RUN apt-get install -y python3-pip
+RUN apt-get install -y net-tools htop wget curl git
 
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
@@ -58,10 +59,10 @@ RUN apt-get update
 RUN apt-get install -y ripgrep
 
 #add group
-RUN addgroup --gid 1024 dev-group
+RUN addgroup --gid $GROUP_ID dev-group
 
 #csharp user
-RUN useradd --gid 1024 -ms /bin/bash default
+RUN useradd -u $USER_ID  --gid $GROUP_ID -ms /bin/bash default
 
 #mv config files
 ADD . /home/default/Config

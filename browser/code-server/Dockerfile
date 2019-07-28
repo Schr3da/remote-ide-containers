@@ -13,17 +13,13 @@ RUN apt-get install -y clang
 RUN apt-get install -y software-properties-common
 RUN apt-get install -y build-essential
 RUN apt-get install -y pkg-config
-RUN apt-get install -y wget
-RUN apt-get install -y curl
-RUN apt-get install -y git
-RUN apt-get install -y curl
-RUN apt-get install -y wget
 RUN apt-get install -y xz-utils
 RUN apt-get install -y apt-transport-https
 RUN apt-get install -y libssl-dev
 RUN apt-get install -y openssl
 RUN apt-get install -y tzdata
 RUN apt-get install -y python3-pip
+RUN apt-get install -y net-tools htop wget curl git
 
 #mono
 RUN apt-get install -y gnupg ca-certificates

@@ -1,5 +1,9 @@
 FROM ubuntu:bionic
 
+ARG USER_ID=1024
+ARG GROUP_ID=1024
+
+
 RUN bash
 RUN apt-get update -y --fix-missing
 RUN apt-get upgrade -y
@@ -8,22 +12,20 @@ RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:neovim-ppa/stable
 
 RUN apt-get update
-RUN apt-get install -y git
-RUN apt-get install -y wget
-RUN apt-get install -y curl
 RUN apt-get install -y neovim
 RUN apt-get install -y libssl-dev
 RUN apt-get install -y openssl
+RUN apt-get install -y net-tools htop wget curl git
 
 RUN add-apt-repository ppa:x4121/ripgrep
 RUN apt-get update -y
 RUN apt-get install -y ripgrep
 
 #add group
-RUN addgroup --gid 1024 dev-group
+RUN addgroup --gid $GROUP_ID dev-group
 
 #node user
-RUN useradd --gid 1024 -ms /bin/bash default
+RUN useradd -u $USER_ID--gid $GROUP_ID -ms /bin/bash default
 
 #mv config files
 ADD . /home/default/Config

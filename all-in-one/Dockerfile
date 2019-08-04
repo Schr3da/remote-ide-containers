@@ -86,6 +86,14 @@ WORKDIR /home/default
 RUN mkdir /home/default/Applications
 RUN mkdir /home/default/.go-packages
 
+#code-server
+RUN wget -q https://github.com/cdr/code-server/releases/download/1.1156-vsc1.33.1/code-server1.1156-vsc1.33.1-linux-x64.tar.gz
+RUN tar xvzf ./code-server1.1156-vsc1.33.1-linux-x64.tar.gz
+RUN mv ./code-server1.1156-vsc1.33.1-linux-x64 /home/default/Applications/code-server
+RUN chown default /home/default/Applications/code-server
+RUN chmod u+x+w /home/default/Applications/code-server/*
+RUN rm -rf ./code-server1.1156-vsc1.33.1-linux-x64.tar.gz
+
 #node 
 RUN wget https://nodejs.org/dist/v11.12.0/node-v11.12.0-linux-x64.tar.xz
 RUN chmod a+x ./node-v11.12.0-linux-x64.tar.xz
@@ -107,5 +115,7 @@ RUN rm -rf ./go1.12.1.linux-amd64.tar.gz
 
 #rust
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
+
+EXPOSE ["9010"]
 
 CMD ["bash"]

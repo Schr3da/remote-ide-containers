@@ -6,11 +6,11 @@ ENV TERM=xterm\
 
 RUN bash
 RUN apt-get update --fix-missing
+RUN apt-get install -y software-properties-common
 RUN apt-get upgrade -y
 
 RUN apt-get install -y lldb
 RUN apt-get install -y clang
-RUN apt-get install -y software-properties-common
 RUN apt-get install -y build-essential
 RUN apt-get install -y pkg-config
 RUN apt-get install -y xz-utils

@@ -116,6 +116,6 @@ RUN rm -rf ./go1.12.1.linux-amd64.tar.gz
 #rust
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
 
-EXPOSE ["9010"]
+EXPOSE 9010
 
 CMD ["bash"]
